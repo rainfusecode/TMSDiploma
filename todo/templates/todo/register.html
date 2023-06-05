@@ -1,0 +1,18 @@
+{% extends 'todo/main.html' %}
+{% block content %}
+
+<div class="header-bar">
+    <h1 style="color: black">Register</h1>
+</div>
+<div class="otstup">
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input class="button1" type="submit" value="Register">
+</form>
+</div>
+
+<p> Have you already created an account? <a class="button1" href="{% url 'login' %}">Login</a></p>
+<br>
+
+{% endblock content %}

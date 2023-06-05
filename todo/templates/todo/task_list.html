@@ -1,16 +1,54 @@
-<title>My Tasks</title>
+{% extends 'todo/main.html' %}
+{% block content %}
 
-<a href="{% url 'createtask' %}">Add new task</a>
-<table>
-    <tr>
-        <th>My Tasks</th>
-    </tr>
+<div class = 'header-bar'>
+    <div>
+        <h2 style="color: black">Welcome, dear <span style="">{{request.user|title}}</span></h2>
+        <h4 style="margin:0; color: black">You need to do <i><span style="color: red">{{taskscount}}</span></i> task{{ taskscount|pluralize:"s" }}</h4>
+    </div>
+    {% if request.user.is_authenticated %}
+    <a style="color: black" href="{% url 'logout' %}">Logout</a>
+    {% else %}
+    <a style="color: black" href="{% url 'login' %}">Login</a>
+    {% endif %}
+</div>
+<title>My Tasks</title>
+<div id="search">
+    <form method="GET">
+        <input type="text" name="searchbar">
+        <input class="button" type="submit" value="Search">
+    </form>
+    <a id="dellink" href="{% url 'createtask' %}">&#x2b;</a>
+</div>
+
+<div class="task-items-wrapper">
     {% for task in tasks %}
-    <tr>
-        <td>{{task.title}}</td>
-        <td><a href="{% url 'detailtask' task.id %}">Detail</a></td>
-    </tr>
+        <div class="task-wrapper">
+            {% if task.finish%}
+                <div class="task-title">
+                    <div class="task-finish-icon">
+
+                    </div>
+                    <i><s><a href="{% url 'updatetask' task.id %}">{{task}}</a></s></i>
+                </div>
+                    <a class="delete" href="{% url 'deletetask' task.id %}">&#215;</a>
+                {% else %}
+                <div class="task-title">
+                    <div class="task-unfinish-icon">
+
+                    </div>
+                    <a href="{% url 'updatetask' task.id %}">{{task}}</a>
+                </div>
+                <a class="delete" href="{% url 'deletetask' task.id %}">&#215;</a>
+                {% endif %}
+
+
+        </div>
     {% empty %}
         <h2>No tasks</h2>
     {% endfor %}
-</table>
+</div>
+
+
+{% endblock content %}
+

@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class Task(models.Model):
     username = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=50)
-    description = models.CharField(max_length=500, null=True, blank=True)
+    description = models.TextField(max_length=500, null=True, blank=True)
     finish = models.BooleanField(default=False)
     create = models.DateTimeField(auto_now_add=True)
 
