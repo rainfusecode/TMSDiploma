@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do Manager</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+      html, body {
+      height: 100%;
+      }
+
+      body {
+            font-family: 'Roboto Slab', serif;
+            padding-top: 50px;
+            height: 100%;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+      }
+
+      @keyframes gradient {
+        0% {
+        background-position: 0% 50%;
+        }
+        50% {
+        background-position: 100% 50%;
+        }
+        100% {
+        background-position: 0% 50%;
+    }
+}
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+            {
+            font-family: 'Raleway', sans-serif;
+        }
+
+        a,
+        p {
+            color: #4b5156
+        }
+
+        a {
+            font-weight: 600;
+        }
+
+       .container{
+          max-width: 90%;
+          margin: auto;
+          background-color: #FFF;
+          border-radius: 20px;
+          text-indent: 20px;
+      }
+
+      .header-bar{
+          display: flex;
+          justify-content: space-between;
+          color: #FFF;
+          padding: 20px;
+          background-color: #FFF0F5;
+          border-radius: 10px 10px 0 0;
+      }
+
+      .header-bar a {
+            color: black;
+            text-decoration: none;
+        }
+
+      .task-wrapper{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 20px;
+          background-color: white;
+          border-top: 1px solid rgb(226, 226, 226);
+      }
+
+      .otstup {
+            padding: 10px;
+        }
+
+      .task-title {
+          text-decoration: none;
+          color: black;
+          display: flex;
+          padding: 20px;
+      }
+
+      .task-title a{
+               text-decoration: none;
+               color: #4b5156;
+               margin-left: 10px;
+      }
+
+      .delete {
+              text-decoration: none;
+              font-weight: 900;
+              color: gray;
+              font-size: 35px;
+              line-height: 0;
+              padding: 20px 0px;
+        }
+
+      .task-finish-icon{
+              height: 20px;
+              width: 20px;
+              background-color: rgb(105, 192, 105);
+              border-radius: 50%
+      }
+
+      .task-unfinish-icon{
+              height: 20px;
+              width: 20px;
+              background-color: red;
+              border-radius: 50%
+      }
+    .search {
+        margin-top: 10px;
+        display: flex;
+    }
+
+     #dellink {
+            color: rgb(105, 192, 105);
+            text-decoration: none;
+            font-size: 42px;
+            text-shadow: 1px 1px #81413b;
+            padding: 10px;
+     }
+
+     #search {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+     }
+
+        input[type=text],
+        input[type=password],
+        textarea {
+            border: 1px solid #757575;
+            border-radius: 5px;
+            padding: 10px;
+            width: 90%;
+        }
+
+        label {
+            padding-top: 10px !important;
+            display: block;
+        }
+
+
+        .button {
+            border: 1px solid #DDA0DD;
+            background-color: #FAFAFA;
+            color: #DDA0DD;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+
+        .button:hover{
+            background: #DDA0DD;
+            color: #FFF;
+            transition: all 0.5s ease;
+        }
+
+        .button1 {
+            border: 1px solid #DDA0DD;
+            background-color: #FAFAFA;
+            color: #DDA0DD;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .button1:hover{
+            background: #DDA0DD;
+            color: #FFF;
+            transition: all 0.5s ease;
+        }
+    </style>
+
+
+
+</head>
+<body>
+  <div class="container">
+    {% block content %}
+
+    {% endblock content %}
+  </div>
+</body>
+</html>
+
