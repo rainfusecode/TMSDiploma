@@ -8,6 +8,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Task
+from django.utils import timezone
 
 
 class TaskList(LoginRequiredMixin, ListView):
@@ -22,6 +23,7 @@ class TaskList(LoginRequiredMixin, ListView):
         if search:
             context['tasks'] = context['tasks'].filter(title__icontains=search)
         return context
+
 
 
 class Detail(LoginRequiredMixin, DetailView):
